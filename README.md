@@ -172,8 +172,6 @@ Pada PHP, alur input dilakukan melalui form HTML berbasis Bootstrap. Poster yang
 - Menampilkan poster pada implementasi PHP.
 - Mengunggah poster baru pada form PHP dengan format JPG, PNG, atau WebP.
 
-Fitur update, delete, dan search tidak digunakan karena TP2 hanya memerlukan fitur Add.
-
 ## Cara Menjalankan Program
 
 ### 1. Persiapan
