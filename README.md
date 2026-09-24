@@ -77,34 +77,62 @@ Implementasi PHP juga memiliki atribut khusus `gambar` untuk menyimpan path post
 
 ```text
 TP2DPBO2526C2/
-├── README.md
-├── plan.md
-├── .gitignore
-├── CPP/
-│   ├── Konten.cpp
-│   ├── Film.cpp
-│   ├── FilmBioskop.cpp
-│   ├── main.cpp
-│   └── testcase.txt
-├── Java/
-│   ├── Konten.java
-│   ├── Film.java
-│   ├── FilmBioskop.java
-│   ├── Main.java
-│   └── testcase.txt
-├── Python/
-│   ├── Konten.py
-│   ├── Film.py
-│   ├── FilmBioskop.py
-│   ├── main.py
-│   └── testcase.txt
-└── PHP/
-	├── Konten.php
-	├── Film.php
-	├── FilmBioskop.php
-	├── index.php
-	├── testcase.txt
-	└── images/
+│   .gitignore
+│   README.md
+│   
+├───CPP
+│       Film.cpp
+│       FilmBioskop.cpp
+│       Konten.cpp
+│       main.cpp
+│       testcase.txt
+│       
+├───Dokumentasi
+│   ├───CPP
+│   │       eror_handling_id_cpp.png
+│   │       eror_handling_input_cpp.png
+│   │       program_cpp.png
+│   │       
+│   ├───Java
+│   │       eror_handling_id_java.png
+│   │       eror_handling_input_java.png
+│   │       program_java.png
+│   │       
+│   ├───PHP
+│   │       dashboard_php.png
+│   │       eror_handling_id_php(2).png
+│   │       eror_handling_id_php.png
+│   │       eror_handling_input_php.png
+│   │       input_data_berhasil_php.png
+│   │       input_data_php.png
+│   │       
+│   └───Python
+│           eror_handling_id_py.png
+│           eror_handling_input_py.png
+│           program_py.png
+│           
+├───Java
+│       Film.java
+│       FilmBioskop.java
+│       Konten.java
+│       Main.java
+│       testcase.txt
+│       
+├───PHP
+│   │   Film.php
+│   │   FilmBioskop.php
+│   │   index.php
+│   │   Konten.php
+│   │   testcase.txt
+│   │   
+│   └───images
+│           
+└───Python
+        Film.py
+        FilmBioskop.py
+        Konten.py
+        main.py
+        testcase.txt
 ```
 
 ### 3. Data Awal
@@ -212,7 +240,7 @@ Sci-Fi
 166
 Denis Villeneuve
 2024
-Studio 1
+Studio 6
 50000
 19:30
 ```
@@ -221,32 +249,73 @@ Urutan tersebut adalah ID, judul, genre, durasi, sutradara, tahun rilis, studio,
 
 ## Dokumentasi Program
 
-Bagian ini sengaja dikosongkan untuk diisi manual.
-
 ### C++
+#### 1. Tampilkan Data Film dan Tambahkan Data
+![show and add](Dokumentasi/CPP/program_cpp.png)
 
-<!-- Isi dokumentasi C++ di sini. -->
+---
+
+#### 2. Eror Handling ID Film
+![Eror Handling ID](Dokumentasi/CPP/eror_handling_id_cpp.png)
+
+---
+
+#### 3. Eror Handling Input (Input Salah)
+![Eror Handling Input](Dokumentasi/CPP/eror_handling_input_cpp.png)
+
+---
 
 ### Java
+#### 1. Tampilkan Data Film dan Tambahkan Data
+![show and add](Dokumentasi/Java/program_java.png)
 
-<!-- Isi dokumentasi Java di sini. -->
+---
+
+#### 2. Eror Handling ID Film
+![Eror Handling ID](Dokumentasi/Java/eror_handling_id_java.png)
+
+---
+
+#### 3. Eror Handling Input (Input Salah)
+![Eror Handling Input](Dokumentasi/Java/eror_handling_input_java.png)
+
+---
 
 ### Python
+#### 1. Tampilkan Data Film dan Tambahkan Data
+![show and add](Dokumentasi/Python/program_py.png)
 
-<!-- Isi dokumentasi Python di sini. -->
+---
+
+#### 2. Eror Handling ID Film
+![Eror Handling ID](Dokumentasi/Python/eror_handling_id_py.png)
+
+---
+
+#### 3. Eror Handling Input (Input Salah)
+![Eror Handling Input](Dokumentasi/Python/eror_handling_input_py.png)
+
+---
 
 ### PHP
+#### 1. Tampilkan Data Film
+![show and add](Dokumentasi/PHP/dashboard_php.png)
 
-<!-- Isi dokumentasi PHP di sini. -->
+---
 
-## Checklist Sebelum Pengumpulan
+#### 2. Tambahkan Film
+![add](Dokumentasi/PHP/input_data_php.png)
+![add success](Dokumentasi/PHP/input_data_berhasil_php.png)
 
-- [ ] Terdapat tiga class dengan multilevel inheritance.
-- [ ] Setiap bahasa memiliki lima objek awal.
-- [ ] C++, Java, dan Python menerima input sesuai testcase.
-- [ ] PHP memiliki atribut dan input gambar poster.
-- [ ] Seluruh atribut tampil dalam tabel lengkap.
-- [ ] Terdapat `testcase.txt` pada setiap folder bahasa.
-- [ ] Diagram class tersedia pada README.
-- [ ] Dokumentasi screenshot telah diisi.
-- [ ] File hasil kompilasi tidak disertakan.
+---
+
+#### 3. Eror Handling ID
+![eror handling id](Dokumentasi/PHP/eror_handling_id_php.png)
+![eror handling id](Dokumentasi/PHP/eror_handling_id_php(2).png)
+
+---
+
+#### 4. Eror Handling Input Film
+![Eror Handling Input](Dokumentasi/PHP/eror_handling_input_php.png)
+
+---
