@@ -1,0 +1,6 @@
+*.class
+*.o
+*.obj
+*.exe
+__pycache__/
+*.py[cod]
