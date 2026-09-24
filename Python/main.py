@@ -2,11 +2,45 @@ from FilmBioskop import FilmBioskop
 
 
 def tampilkanData(daftarFilm):
-    # Fungsi ini menampilkan seluruh film yang tersimpan di dalam daftar.
-    for i, film in enumerate(daftarFilm, start=1):
-        print(f"\nFilm ke-{i}")
-        print("--------------------------")
-        film.tampilkanData()
+    # Fungsi ini menampilkan seluruh film yang tersimpan di dalam daftar dalam format tabel dinamis.
+    headers = ["ID", "Judul", "Genre", "Durasi", "Sutradara", "Tahun Rilis", "Studio", "Harga Tiket", "Jadwal Tayang"]
+    rows = []
+
+    for film in daftarFilm:
+        rows.append([
+            str(film.getId()),
+            film.getJudul(),
+            film.getGenre(),
+            str(film.getDurasi()),
+            film.getSutradara(),
+            str(film.getTahunRilis()),
+            film.getStudio(),
+            str(film.getHargaTiket()),
+            film.getJadwalTayang()
+        ])
+
+    widths = [len(str(header)) for header in headers]
+    for row in rows:
+        for i, value in enumerate(row):
+            widths[i] = max(widths[i], len(value))
+
+    def print_row(values):
+        cells = [str(value).ljust(widths[i]) for i, value in enumerate(values)]
+        print("| " + " | ".join(cells) + " |")
+
+    border = "+" + "+".join("-" * (width + 2) for width in widths) + "+"
+    print(border)
+    print_row(headers)
+    print(border)
+    for row in rows:
+        print_row(row)
+    print(border)
+
+
+def bacaInput(prompt):
+    # Fungsi ini menampilkan teks petunjuk, lalu membaca satu baris input dari user.
+    print(prompt, end="")
+    return input().strip()
 
 
 def main():
@@ -20,26 +54,27 @@ def main():
     ]
 
     # Bagian ini menampilkan seluruh data awal sebelum menerima input baru.
-    print("=== Data Awal ===")
+    print("=== Data Film ===")
     tampilkanData(daftarFilm)
+    print("\n=== Masukkan Data Film Baru ===")
 
     # Blok ini membaca data film baru dan menangani input yang bukan angka atau tidak tersedia.
     try:
-        id_film = int(input().strip())
-        judul = input().strip()
-        genre = input().strip()
-        durasi = int(input().strip())
-        sutradara = input().strip()
-        tahun = int(input().strip())
-        studio = input().strip()
-        harga = float(input().strip())
-        jadwal = input().strip()
+        id_film = int(bacaInput("Masukkan ID baru: "))
+        judul = bacaInput("Masukkan judul: ")
+        genre = bacaInput("Masukkan genre: ")
+        durasi = int(bacaInput("Masukkan durasi: "))
+        sutradara = bacaInput("Masukkan sutradara: ")
+        tahun = int(bacaInput("Masukkan tahun rilis: "))
+        studio = bacaInput("Masukkan studio: ")
+        harga = int(bacaInput("Masukkan harga tiket: "))
+        jadwal = bacaInput("Masukkan jadwal tayang: ")
     except (ValueError, EOFError):
         print("Input tidak valid!")
         return
 
-    # Data baru hanya diproses apabila semua teks terisi dan angka memiliki nilai yang valid.
-    if not judul or not genre or not sutradara or not studio or not jadwal or durasi <= 0 or harga < 0:
+    # Data baru hanya diproses apabila semua field wajib telah diisi dan nilainya sesuai ketentuan.
+    if id_film <= 0 or tahun <= 0 or not judul or not genre or not sutradara or not studio or not jadwal or durasi <= 0 or harga < 0:
         print("Input tidak valid!")
         return
 

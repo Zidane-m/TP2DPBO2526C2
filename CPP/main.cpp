@@ -5,6 +5,61 @@
 #include "FilmBioskop.cpp"
 using namespace std;
 
+// Method ini menampilkan daftar film dalam format tabel yang dinamis.
+void tampilkanTabel(const vector<FilmBioskop>& daftarFilm) {
+    vector<string> header = {"ID", "Judul", "Genre", "Durasi", "Sutradara", "Tahun Rilis", "Studio", "Harga Tiket", "Jadwal Tayang"};
+    vector<int> lebar;
+    for (const auto& kolom : header) {
+        lebar.push_back((int)kolom.length());
+    }
+
+    for (const auto& film : daftarFilm) {
+        lebar[0] = max(lebar[0], (int)to_string(film.getId()).length());
+        lebar[1] = max(lebar[1], (int)film.getJudul().length());
+        lebar[2] = max(lebar[2], (int)film.getGenre().length());
+        lebar[3] = max(lebar[3], (int)to_string(film.getDurasi()).length());
+        lebar[4] = max(lebar[4], (int)film.getSutradara().length());
+        lebar[5] = max(lebar[5], (int)to_string(film.getTahunRilis()).length());
+        lebar[6] = max(lebar[6], (int)film.getStudio().length());
+        lebar[7] = max(lebar[7], (int)to_string((long long)film.getHargaTiket()).length());
+        lebar[8] = max(lebar[8], (int)film.getJadwalTayang().length());
+    }
+
+    auto cetakBaris = [&](const vector<string>& kolom) {
+        cout << "|";
+        for (size_t i = 0; i < kolom.size(); i++) {
+            cout << " " << left << setw(lebar[i]) << kolom[i] << " |";
+        }
+        cout << endl;
+    };
+
+    string garis = "+";
+    for (int w : lebar) {
+        garis += string(w + 2, '-') + "+";
+    }
+
+    cout << garis << endl;
+    cetakBaris(header);
+    cout << garis << endl;
+
+    for (const auto& film : daftarFilm) {
+        vector<string> data = {
+            to_string(film.getId()),
+            film.getJudul(),
+            film.getGenre(),
+            to_string(film.getDurasi()),
+            film.getSutradara(),
+            to_string(film.getTahunRilis()),
+            film.getStudio(),
+            to_string((long long)film.getHargaTiket()),
+            film.getJadwalTayang()
+        };
+        cetakBaris(data);
+    }
+
+    cout << garis << endl;
+}
+
 // Method utama ini membuat data awal, menerima data baru, dan menampilkan hasilnya.
 int main() {
     vector<FilmBioskop> daftarFilm;
@@ -14,18 +69,16 @@ int main() {
     daftarFilm.push_back(FilmBioskop(2, "Inception", "Sci-Fi", 148, "Christopher Nolan", 2010, "Studio 2", 45000, "20:00"));
     daftarFilm.push_back(FilmBioskop(3, "Avengers: Doomsday", "Action", 180, "Russo Bros", 2026, "Studio 3", 60000, "21:00"));
     daftarFilm.push_back(FilmBioskop(4, "Agak Laen 2", "Comedy", 96, "Aco Tenri", 2025, "Studio 4", 35000, "17:30"));
-    daftarFilm.push_back(FilmBioskop(5, "Merah Putih One For All", "Action", 120, "Unknown", 2025, "Studio 5", 40000, "18:45"));
+    daftarFilm.push_back(FilmBioskop(5, "Merah Putih One For All", "Action", 120, "Bowo", 2025, "Studio 5", 40000, "18:45"));
 
     int id, durasi, tahun;
     string judul, genre, sutradara, studio, jadwal;
     double harga;
 
     // Bagian ini menampilkan seluruh data awal sebelum menerima input baru.
-    cout << "\n=== Data Awal ===\n";
-    for (int i = 0; i < daftarFilm.size(); i++) {
-        cout << "\nFilm ke-" << i + 1 << endl;
-        daftarFilm[i].tampilkanData();
-    }
+    cout << "\n=== Data Film ===\n";
+    tampilkanTabel(daftarFilm);
+    cout << "\n=== Masukkan Data Film Baru ===\n";
 
     // Bagian ini membaca seluruh informasi film baru dari pengguna.
     cout << "\nMasukkan ID : ";
@@ -67,10 +120,7 @@ int main() {
             // Data film baru ditambahkan setelah lolos validasi dan pemeriksaan ID.
             daftarFilm.push_back(FilmBioskop(id, judul, genre, durasi, sutradara, tahun, studio, harga, jadwal));
             cout << "\n=== Data Setelah Penambahan ===\n";
-            for (int i = 0; i < daftarFilm.size(); i++) {
-                cout << "\nFilm ke-" << i + 1 << endl;
-                daftarFilm[i].tampilkanData();
-            }
+            tampilkanTabel(daftarFilm);
         }
     }
 

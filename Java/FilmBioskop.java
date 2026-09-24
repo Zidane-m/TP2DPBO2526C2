@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class FilmBioskop extends Film{
     private String studio;
     private double hargaTiket;
@@ -14,8 +12,7 @@ public class FilmBioskop extends Film{
     }
 
     // Konstruktor ini mengisi data film beserta informasi penayangannya di bioskop.
-    public FilmBioskop(int id, String judul, String genre, int durasi, String sutradara, int tahunRilis,
-                      String studio, double hargaTiket, String jadwalTayang){
+    public FilmBioskop(int id, String judul, String genre, int durasi, String sutradara, int tahunRilis, String studio, double hargaTiket, String jadwalTayang){
         super(id, judul, genre, durasi, sutradara, tahunRilis);
         this.studio = studio;
         this.hargaTiket = hargaTiket;

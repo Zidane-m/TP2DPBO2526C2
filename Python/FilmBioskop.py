@@ -2,7 +2,7 @@ from Film import Film
 
 class FilmBioskop(Film):
     # Konstruktor ini membuat objek FilmBioskop dengan informasi penayangan di bioskop.
-    def __init__(self, id=0, judul="", genre="", durasi=0, sutradara="", tahun_rilis=0, studio="", harga_tiket=0, jadwal_tayang=""):
+    def __init__(self, id=0, judul="", genre="", durasi=0, sutradara="", tahun_rilis=0, studio="", harga_tiket=0.0, jadwal_tayang=""):
         super().__init__(id, judul, genre, durasi, sutradara, tahun_rilis)
         self.__studio = studio
         self.__harga_tiket = harga_tiket

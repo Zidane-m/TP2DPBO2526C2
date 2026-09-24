@@ -1,5 +1,4 @@
-class Film extends Konten
-{
+class Film extends Konten{
     private int durasi;
     private String sutradara;
     private int tahunRilis;
