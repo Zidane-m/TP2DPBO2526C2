@@ -296,7 +296,7 @@ Urutan tersebut adalah ID, judul, genre, durasi, sutradara, tahun rilis, studio,
 ---
 
 ### PHP
-#### 1. Tampilkan Data Film
+#### 1. Dashboard
 ![show and add](Dokumentasi/PHP/dashboard_php.png)
 
 ---
