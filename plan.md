@@ -19,10 +19,10 @@ Program menggunakan tiga class dengan hubungan pewarisan bertingkat:
 
 ```mermaid
 classDiagram
-    Media <|-- Film
+    Konten <|-- Film
     Film <|-- FilmBioskop
 
-    class Media {
+    class Konten {
         -int id
         -string judul
         -string genre
@@ -44,9 +44,9 @@ classDiagram
     }
 ```
 
-### Class `Media`
+### Class `Konten`
 
-Class dasar untuk menyimpan informasi umum sebuah media film.
+Class dasar untuk menyimpan informasi umum sebuah konten film.
 
 Atribut:
 
@@ -60,7 +60,7 @@ Method:
 - Getter dan setter untuk setiap atribut.
 - Method untuk mengambil atau menampilkan data dasar.
 
-### Class `Film extends Media`
+### Class `Film extends Konten`
 
 Class turunan pertama yang menambahkan informasi khusus film.
 
@@ -72,9 +72,9 @@ Atribut:
 
 Method:
 
-- Constructor yang memanggil constructor `Media`.
+- Constructor yang memanggil constructor `Konten`.
 - Getter dan setter untuk setiap atribut.
-- Override method tampilan data dari class `Media`.
+- Override method tampilan data dari class `Konten`.
 
 ### Class `FilmBioskop extends Film`
 
@@ -104,13 +104,13 @@ Sebelum menerima input user, setiap program harus membuat minimal lima objek awa
 
 Contoh data awal:
 
-1. Avatar 3
-2. Interstellar
-3. The Batman
-4. Spider-Man: No Way Home
-5. Inside Out 2
+1. Interstellar
+2. Inception
+3. Avengers: Doomsday
+4. Agak Laen 2
+5. Merah Putih One For All
 
-Setiap objek harus memiliki data lengkap dari seluruh class, yaitu data `Media`, `Film`, dan `FilmBioskop`. Implementasi PHP juga memiliki data gambar.
+Setiap objek harus memiliki data lengkap dari seluruh class, yaitu data `Konten`, `Film`, dan `FilmBioskop`. Implementasi PHP juga memiliki data gambar.
 
 ## 4. Fitur Program
 
@@ -170,7 +170,7 @@ Ketentuan implementasi tabel:
 - Java menggunakan format kolom dengan `printf` atau perhitungan lebar kolom.
 - Python menghitung lebar maksimum setiap kolom.
 - PHP menggunakan tabel HTML dan CSS responsif.
-- Semua atribut dari `Media`, `Film`, dan `FilmBioskop` harus ditampilkan.
+- Semua atribut dari `Konten`, `Film`, dan `FilmBioskop` harus ditampilkan.
 - PHP juga menampilkan gambar poster pada kolom khusus.
 
 ## 7. Rencana Struktur Folder
@@ -244,8 +244,8 @@ Testcase digunakan untuk membuktikan bahwa:
 
 ### Tahap 2: Implementasi Class
 
-- Membuat class `Media`.
-- Membuat class `Film` sebagai turunan `Media`.
+- Membuat class `Konten`.
+- Membuat class `Film` sebagai turunan `Konten`.
 - Membuat class `FilmBioskop` sebagai turunan `Film`.
 - Menambahkan minimal tiga atribut pada setiap class.
 - Menambahkan constructor, getter, setter, dan method tampilan.
