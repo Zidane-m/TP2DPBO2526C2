@@ -44,34 +44,63 @@ classDiagram
 
 #### Class `Konten`
 
-Class dasar yang menyimpan informasi umum film:
+Class dasar yang menyimpan informasi umum konten/film.
 
-- `id`: identitas unik film.
-- `judul`: judul film.
-- `genre`: genre film.
-- Constructor, getter, setter, dan method `tampilkanData()`.
+**Atribut:**
+- `id` (`int`): Identitas unik film.
+- `judul` (`string`): Judul film.
+- `genre` (`string`): Genre film.
+
+**Method:**
+- `Konten()` / `__construct()`: Constructor (default & parameterized) untuk menginisialisasi atribut `id`, `judul`, dan `genre`.
+- `getId()`: Mengembalikan nilai `id` film.
+- `setId(id)`: Mengubah nilai `id` film.
+- `getJudul()`: Mengembalikan nilai `judul` film.
+- `setJudul(judul)`: Mengubah nilai `judul` film.
+- `getGenre()`: Mengembalikan nilai `genre` film.
+- `setGenre(genre)`: Mengubah nilai `genre` film.
+- `tampilkanData()`: Menampilkan data dasar film (`id`, `judul`, `genre`).
 
 #### Class `Film extends Konten`
 
-Class turunan pertama yang menambahkan informasi khusus film:
+Class turunan pertama yang menambahkan informasi khusus mengenai film.
 
-- `durasi`: durasi film dalam menit.
-- `sutradara`: nama sutradara film.
-- `tahunRilis`: tahun film dirilis.
-- Constructor yang memanggil constructor `Konten`.
-- Getter, setter, dan override method `tampilkanData()`.
+**Atribut:**
+- `durasi` (`int`): Durasi film dalam satuan menit.
+- `sutradara` (`string`): Nama sutradara film.
+- `tahunRilis` (`int`): Tahun rilis film.
+
+**Method:**
+- `Film()` / `__construct()`: Constructor (default & parameterized) yang memanggil constructor `Konten` serta menginisialisasi atribut `durasi`, `sutradara`, dan `tahunRilis`.
+- `getDurasi()`: Mengembalikan nilai `durasi` film.
+- `setDurasi(durasi)`: Mengubah nilai `durasi` film.
+- `getSutradara()`: Mengembalikan nama `sutradara` film.
+- `setSutradara(sutradara)`: Mengubah nama `sutradara` film.
+- `getTahunRilis()`: Mengembalikan `tahunRilis` film.
+- `setTahunRilis(tahunRilis)`: Mengubah `tahunRilis` film.
+- `tampilkanData()`: Override method untuk menampilkan data dari `Konten` ditambah atribut khusus `Film` (`durasi`, `sutradara`, `tahunRilis`).
 
 #### Class `FilmBioskop extends Film`
 
-Class turunan kedua yang menambahkan informasi penayangan di bioskop:
+Class turunan kedua yang menambahkan informasi penayangan film di bioskop.
 
-- `studio`: nomor atau nama studio.
-- `hargaTiket`: harga tiket dalam rupiah.
-- `jadwalTayang`: waktu penayangan film.
-- Constructor yang memanggil constructor `Film`.
-- Getter, setter, dan override method `tampilkanData()`.
+**Atribut:**
+- `studio` (`string`): Nomor atau nama studio penayangan.
+- `hargaTiket` (`double`/`float`): Harga tiket penayangan film dalam rupiah.
+- `jadwalTayang` (`string`): Waktu/jadwal penayangan film.
+- `gambar` (`string`, khusus PHP): Path/lokasi file poster film.
 
-Implementasi PHP juga memiliki atribut khusus `gambar` untuk menyimpan path poster film.
+**Method:**
+- `FilmBioskop()` / `__construct()`: Constructor (default & parameterized) yang memanggil constructor `Film` serta menginisialisasi atribut `studio`, `hargaTiket`, `jadwalTayang` (dan `gambar` pada PHP).
+- `getStudio()`: Mengembalikan nama/nomor `studio`.
+- `setStudio(studio)`: Mengubah nama/nomor `studio`.
+- `getHargaTiket()`: Mengembalikan `hargaTiket` film.
+- `setHargaTiket(hargaTiket)`: Mengubah `hargaTiket` film.
+- `getJadwalTayang()`: Mengembalikan `jadwalTayang` film.
+- `setJadwalTayang(jadwalTayang)`: Mengubah `jadwalTayang` film.
+- `getGambar()` (khusus PHP): Mengembalikan path/lokasi file poster film.
+- `setGambar(gambar)` (khusus PHP): Mengubah path/lokasi file poster film.
+- `tampilkanData()`: Override method untuk menampilkan seluruh data dari `Film` ditambah data penayangan bioskop (`studio`, `hargaTiket`, `jadwalTayang`, dan `gambar` pada PHP).
 
 ### 2. Struktur File
 
